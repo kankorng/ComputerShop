@@ -16,7 +16,10 @@ function showPage(pageId) {
 
 let users =[
     {userName:'kankorng',password:'1'},
-    {userName:'thavrasann',password:'2'}
+    {userName:'thavrasann',password:'2'},
+    {userName:'vinsatry',password:'3'},
+    {userName:'ngetti',password:'4'},
+    {userName:'keomliheng',password:'5'}
 ]
 function login() {
     let user = document.getElementById('userName');
