@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer Shop Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light  " style="background: #2c3e50;">
+    <a class="navbar-brand" href="#"><img src="logo.jpg" style="width: 30px" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="#">Computer Shop <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <h5 class="btn text-white my-2 my-sm-0 mr-3">User Login : <span id="userLogin"></span></h5>
+            <h5 class="btn btn-info " onclick="logout()">SingOut</h5>
+        </form>
+    </div>
+</nav>
+<div class="form_login" id="loginForm" >
+    <img src="backround.jpg"  class="w-100 blur-img">
+    <form action="" class="w-25 shadow p-3  rounded form-center">
+        <div class="form-group input-box">
+            <label for="userName">User Name</label>
+            <i class="fa fa-user"></i>
+            <input type="text" class="form-control" id="userName">
+        </div>
+        <div class="form-group input-box">
+            <label for="password_login">Password</label>
+            <i class="fa fa-lock"></i>
+            <input type="text" class="form-control" id="password_login">
+        </div>
+        <div>
+            <input type="checkbox" id="check_password">
+            <label for="check_password">Show Password</label>
+        </div>
+        <h2 class="btn btn-primary" onclick="login()"> Login</h2>
+    </form>
+</div>
+<div class="hidden" id="nextContent">
+    <div class="app " >
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2 class="logo">Computer Shop</h2>
+            <ul class="menu">
+                <li class="active" onclick="showPage('dashboard')">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </li>
+
+                <li onclick="showPage('user')">
+                    <i class="fa-solid fa-users"></i>
+                    <span>User</span>
+                </li>
+
+                <li onclick="showPage('role')">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span>Role</span>
+                </li>
+
+                <li onclick="showPage('category')">
+                    <i class="fa-solid fa-layer-group"></i>
+                    <span>Categories</span>
+                </li>
+
+                <li onclick="showPage('supplier')">
+                    <i class="fa-solid fa-truck"></i>
+                    <span>Suppliers</span>
+                </li>
+
+                <li onclick="showPage('product')">
+                    <i class="fa-solid fa-box"></i>
+                    <span>Products</span>
+                </li>
+
+                <li onclick="showPage('customer')">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Customers</span>
+                </li>
+
+                <li onclick="showPage('sale')">
+                    <i class="fa-solid fa-cash-register"></i>
+                    <span>Sales</span>
+                </li>
+            </ul>
+        </aside>
+        <!-- Main Content -->
+        <main class="content">
+            <div id="dashboard" class="page active">
+                <main class="main-content">
+                    <header>
+                        <h1>Store Overview</h1>
+                    </header>
+
+                    <section class="cards">
+                        <div class="card">
+                            <div class="card-info">
+                                <h3>$12,450</h3>
+                                <p>Monthly Revenue</p>
+                            </div>
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="card">
+                            <div class="card-info">
+                                <h3>84</h3>
+                                <p>Units Sold</p>
+                            </div>
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="card">
+                            <div class="card-info">
+                                <h3>12</h3>
+                                <p>Pending Repairs</p>
+                            </div>
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                    </section>
+
+                    <section class="recent-orders">
+                        <h2>Recent Inventory Updates</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>RTX 4080 Super</td>
+                                <td>GPU</td>
+                                <td>$999</td>
+                                <td>5</td>
+                                <td><span class="status in-stock">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ryzen 9 7950X</td>
+                                <td>CPU</td>
+                                <td>$549</td>
+                                <td>2</td>
+                                <td><span class="status low-stock">Low Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>Custom Build #902</td>
+                                <td>PC Build</td>
+                                <td>$2,400</td>
+                                <td>0</td>
+                                <td><span class="status out-stock">Out of Stock</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </main>
+            </div>
+            <div id="user" class="page">
+                <h1>User Management</h1>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
+                        <form class="shadow p-3">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="email" class="form-control" id="fullName" >
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password">
+                                </div>
+                            </div> <div class="form-group">
+                            <label for="email">email address</label>
+                            <input type="email" class="form-control" id="email" >
+                        </div>
+                            <div class="form-group">
+                                <label for="roles">Role</label>
+                                <input type="password" class="form-control" id="roles">
+                            </div>
+                            <div class="form-group">
+                                <label for="createdAt">CreatedAt</label>
+                                <input type="date" class="form-control" id="createdAt">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-2">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">CreateAt</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>kan korng</td>
+                                <td>1111</td>
+                                <td>kankorng@gmail.com</td>
+                                <td>Admin</td>
+                                <td>28-01-2026</td>
+                            </tr> <tr>
+                                <th scope="row">2</th>
+                                <td>thav rasann</td>
+                                <td>2222</td>
+                                <td>thavrasann@gmail.com</td>
+                                <td>manager</td>
+                                <td>28-01-2026</td>
+                            </tr> <tr>
+                                <th scope="row">3</th>
+                                <td>nhet ti</td>
+                                <td>3333</td>
+                                <td>nhetti@gmail.com</td>
+                                <td>HR</td>
+                                <td>28-01-2026</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="role" class="page">
+                <h1>Role Management</h1>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
+                        <form class="shadow p-3">
+                            <div class="form-group">
+                                <label for="roleName">Role Name</label>
+                                <input type="email" class="form-control" id="roleName" >
+                            </div>
+                            <div class="group-button">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-info">Update</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-2">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Role Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Admin</td>
+
+                            </tr> <tr>
+                                <th scope="row">2</th>
+                                <td>Manager</td>
+                            </tr> <tr>
+                                <th scope="row">3</th>
+                                <td>HR</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="category" class="page">
+                <h1>Categories Management</h1>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
+                        <form class="shadow p-3">
+                            <div class="form-group">
+                                <label for="categoryName">Category Name</label>
+                                <input type="email" class="form-control" id="categoryName" >
+                            </div>
+                            <div class="group-button">
+                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-info">Update</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-2">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Category Name</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>CPU</td>
+
+                            </tr> <tr>
+                                <th scope="row">2</th>
+                                <td>GPU</td>
+                            </tr> <tr>
+                                <th scope="row">3</th>
+                                <td>PC Build</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="supplier" class="page">
+                <h1>Suppliers Management</h1>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
+                        <form class="shadow p-3">
+                            <div class="form-group">
+                                <label for="supplierName">Full Name</label>
+                                <input type="email" class="form-control" id="supplierName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="numberPhone">Number Phone</label>
+                                <input type="password" class="form-control" id="numberPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="email_s">Email</label>
+                                <input type="email" class="form-control" id="email_s" >
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="password" class="form-control" id="address" >
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-2">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Supplier Name</th>
+                                <th scope="col">Number Phone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Address</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mekong.CoLTD</td>
+                                <td>12345678</td>
+                                <td>Mekong@gmail.com</td>
+                                <td>PP</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>NIKA.CoLTD</td>
+                                <td>12345678</td>
+                                <td>NIKA@gmail.com</td>
+                                <td>PP</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>TK Custom.CoLTD</td>
+                                <td>12345678</td>
+                                <td>tkcustom@gmail.com</td>
+                                <td>PP</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="product" class="page">
+                <h1>Products Management</h1>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
+                        <form class="shadow p-3">
+                            <div class="form-group">
+                                <label for="categoryNamePro">Category Name</label>
+                                <select name="" id="categoryNamePro" class="form-control">
+                                    <option> CPU</option>
+                                    <option> GPU</option>
+                                    <option> PC Build</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="supplierNamePro">Supplier Name</label>
+                                <select name="" id="supplierNamePro" class="form-control">
+                                    <option> Mekong.CoLTD</option>
+                                    <option> TK Custom</option>
+                                    <option> NiKA.CoLTD</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="productName">Product Name</label>
+                                <input type="text" class="form-control" id="productName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="barcode">Barcode</label>
+                                <input type="number" class="form-control" id="barcode" >
+                            </div>
+                            <div class="form-group">
+                                <label for="sellPrice">Sell Price</label>
+                                <input type="number" class="form-control" id="sellPrice" >
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" class="form-control" id="quantity" >
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-2">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Category Id</th>
+                                <th scope="col">Supplier Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Barcode</th>
+                                <th scope="col">Sell Price</th>
+                                <th scope="col">Qty</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>Dell</td>
+                                <td>1111</td>
+                                <td>790</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>RTX 4090</td>
+                                <td>2222</td>
+                                <td>100</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>1</td>
+                                <td>3</td>
+                                <td>Ryzen 9 7950X</td>
+                                <td>3333</td>
+                                <td>150</td>
+                                <td>15</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="customer" class="page">
+                <h1>Customers Management</h1>
+                <div class="row mt-3">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
+                        <form class="shadow p-3">
+                            <div class="form-group">
+                                <label for="customerName">Customer Name</label>
+                                <input type="text" class="form-control" id="customerName" >
+                            </div>
+                            <div class="form-group">
+                                <label for="numberCustomer">Number Phone</label>
+                                <input type="number" class="form-control" id="numberCustomer">
+                            </div>
+                            <div class="form-group">
+                                <label for="emailCustomer">Email</label>
+                                <input type="email" class="form-control" id="emailCustomer" >
+                            </div>
+                            <div class="form-group">
+                                <label for="addressCustomer">Address</label>
+                                <input type="text" class="form-control" id="addressCustomer" >
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-8 col-md-4 col-sm-2">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Number Phone</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Address</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>kan korng</td>
+                                <td>12345678</td>
+                                <td>kankorng@gmail.com</td>
+                                <td>PP</td>
+                            </tr>  <tr>
+                                <th scope="row">2</th>
+                                <td>thav rasann</td>
+                                <td>12345678</td>
+                                <td>kankorng@gmail.com</td>
+                                <td>kandal</td>
+                            </tr>  <tr>
+                                <th scope="row">3</th>
+                                <td>nget ti</td>
+                                <td>12345678</td>
+                                <td>kankorng@gmail.com</td>
+                                <td>takev</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div id="sale" class="page">
+                <!--            <h1>Sales</h1>-->
+                <div class="row ">
+                    <div class="col-lg-6 col-md-12">
+                        <!--                    <img src="banner.jpg" class="w-100">-->
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="card mt-3 product-card">
+                                    <span class="badge badge-danger ml-0">400 $</span>
+                                    <img src="data:image/jpeg;base64,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AI19cuIgAAAsBoAJAqiIkhERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBE1GK8JcPTdkdyGU2PVY6+gS1/wAWYX5bfYb2TCeKwROpvH6wrzR6t5E43aPjP2ZQcpVrMrC39lVO/dqFtMXywbI+kN9zV9ybVtFo3HZZ3kTg/K/sj6Q3P+pq7ufmS5Q8bWynYIuIYsxAA6GrvY2HxNJMzodxEopVAyhhuIBHcRcRAriIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgRH4asfhFULUCMahtcgZhbUA8DqD+HGcdsegVxCudAFZWs6ZCWIC2XOWvcgbh6byYNseBK4io9Rqg6xPVNO9gbXHna7hMPycUr36Rb779EPengTwvERzxFPemf8AXz/OPmw5LdeiNsGjHadYLS6S2HViM5Rgq1KN7MAbBiQjbhldiTYEGrFbRZENVKdJ0ppgalVembKtMK5RVBUX6XOmhVlva6g6jsdo+Kio9dq9LaDUiyqpy0dbKVNiRVFxmVTbsmGvidrhSg2o+VlCsvQGzKqZFVh02oCCwvunscNS1MNK27xENaxqIhww8NaQTJ8HY636VnU1Seip0xVN0K9KMhcNa+awvYtfX4vba4g4Wmq1Aada5Z2Bz565YMwUKuezWuAPTpbv/IUf/UP/AI//AN0uYbxHlHR/h98rK1vg+/KwNv67TdNbxusxHotKWNm/1NP9xP8ACIl3DUsiKt75VC352FrzyKxqsQiH/9k=" alt="" class="pro_img">
+                                    <div class="card-body">
+                                        <h5 class="card-title">RTX 4090</h5>
+                                    </div>
+                                    <button class="btn btn-primary">Order</button>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card mt-3 product-card">
+                                    <span class="badge badge-danger ml-0">90 $</span>
+                                    <div class="card-body">
+                                        <img src="data:image/jpeg;base64,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" class="pro_img" alt="">
+                                        <h5 class="card-title multi-ellipsis">Ryzen 9 7950X</h5>
+                                    </div>
+                                    <button class="btn btn-primary">Order</button>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card mt-3 product-card ">
+                                    <span class="badge badge-danger ml-0">700 $</span>
+                                    <div class="card-body">
+                                        <img class="pro_img" src="data:image/jpeg;base64,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" alt="">
+                                        <h5 class="card-title">Lenovo</h5>
+                                    </div>
+                                    <button class="btn btn-primary">Order</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <table class="table ">
+                            <thead class="bg-primary text-white">
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Product Name</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Total</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>RTX 8080</td>
+                                <td>1</td>
+                                <td>400</td>
+                                <td>400</td>
+                            </tr>  <tr>
+                                <th scope="row">2</th>
+                                <td>Ryzen 9 7950X</td>
+                                <td>2</td>
+                                <td>90</td>
+                                <td>180</td>
+                            </tr>  <tr>
+                                <th scope="row">3</th>
+                                <td>Lenovo</td>
+                                <td>1</td>
+                                <td>700</td>
+                                <td>700</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p class="btn btn-primary float-right">Payment</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div >
+
+</body>
+</html>
+<script src="script.js"> </script>
+</body>
+</html>
