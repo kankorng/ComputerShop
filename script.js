@@ -12,8 +12,6 @@ function showPage(pageId) {
 
     event.target.classList.add('active');
 }
-
-
 let users =[
     {userName:'kankorng',password:'1'},
     {userName:'thavrasann',password:'2'},
